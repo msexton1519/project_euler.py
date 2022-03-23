@@ -524,35 +524,3 @@ def project_euler97(num_digits=10):
         power += 1
     num += 1
     return num
-
-
-#Complete and correct
-def project_euler112(num=0):
-    bouncy = 0
-    counter = 100
-    denom = 1
-    while bouncy / denom != .9:
-        if not math_extended.non_increasing_number(counter) and not math_extended.non_decreasing_number(counter):
-            bouncy += 1
-            denom = counter
-        counter += 1
-    return denom
-
-
-def project_euler124(n, k):
-    def rad(num):
-        primes = math_extended.prime_factors2(num)
-        mult = 1
-        for (x, y) in primes:
-            mult *= x
-        return mult
-
-    set1 = [(1, 1)]
-    for i in range(2, n + 1):
-        set1.append((i, rad(i)))
-
-    set2 = sorted(set1, key=lambda x: x[1])
-    return set2[k - 1]
-
-
-print(project_euler69())
